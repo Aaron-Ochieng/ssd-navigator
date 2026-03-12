@@ -1,0 +1,8 @@
+requirements:
+  - id: FR-SAMPLE-001
+    title: Sample requirement
+    description: "Must be covered"
+
+  - id: FR-SAMPLE-002
+    title: Missing requirement
+    description: "Not yet covered"

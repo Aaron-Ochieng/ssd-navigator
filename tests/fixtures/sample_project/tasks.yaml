@@ -1,0 +1,9 @@
+tasks:
+  - id: TASK-001
+    requirementId: FR-SAMPLE-001
+    title: Implement sample
+    status: done
+  - id: TASK-002
+    requirementId: FR-SAMPLE-002
+    title: Implement missing
+    status: open
