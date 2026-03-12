@@ -1,0 +1,100 @@
+tasks:
+  - id: TASK-001
+    requirementId: SCS-SCAN-001
+    title: Implement requirements.yaml parser
+    status: open
+
+  - id: TASK-002
+    requirementId: SCS-SCAN-002
+    title: Implement tasks.yaml parser
+    status: open
+
+  - id: TASK-003
+    requirementId: SCS-SCAN-003
+    title: Implement annotation scanner
+    status: open
+
+  - id: TASK-004
+    requirementId: SCS-SCAN-004
+    title: Implement supported language detection
+    status: open
+
+  - id: TASK-005
+    requirementId: SCS-SCAN-005
+    title: Implement comment parsing logic
+    status: open
+
+  - id: TASK-006
+    requirementId: SCS-SCAN-006
+    title: Implement test file classification
+    status: open
+
+  - id: TASK-007
+    requirementId: SCS-SCAN-007
+    title: Implement coverage calculation engine
+    status: open
+
+  - id: TASK-008
+    requirementId: SCS-SCAN-009
+    title: Implement orphan annotation detection
+    status: open
+
+  - id: TASK-009
+    requirementId: SCS-SCAN-010
+    title: Implement orphan task detection
+    status: open
+
+  - id: TASK-010
+    requirementId: SCS-SCAN-011
+    title: Implement project summary statistics
+    status: open
+
+  - id: TASK-011
+    requirementId: SCS-SCAN-012
+    title: Implement healthcheck API endpoint
+    status: open
+
+  - id: TASK-012
+    requirementId: SCS-SCAN-013
+    title: Implement stats API endpoint
+    status: open
+
+  - id: TASK-013
+    requirementId: SCS-SCAN-014
+    title: Implement requirements list API
+    status: open
+
+  - id: TASK-014
+    requirementId: SCS-SCAN-015
+    title: Implement requirement detail endpoint
+    status: open
+
+  - id: TASK-015
+    requirementId: SCS-SCAN-016
+    title: Implement annotations endpoint
+    status: open
+
+  - id: TASK-016
+    requirementId: SCS-SCAN-017
+    title: Implement tasks endpoint
+    status: open
+
+  - id: TASK-017
+    requirementId: SCS-SCAN-018
+    title: Implement scan trigger endpoint
+    status: open
+
+  - id: TASK-018
+    requirementId: SCS-SCAN-019
+    title: Implement scan status endpoint
+    status: open
+
+  - id: TASK-019
+    requirementId: SCS-SCAN-020
+    title: Implement structured error handling
+    status: open
+
+  - id: TASK-020
+    requirementId: SCS-SCAN-021
+    title: Implement self-hosting scan verification
+    status: open

@@ -1,0 +1,88 @@
+requirements:
+  - id: SCS-SCAN-001
+    title: Parse requirements.yaml
+    description: "Service MUST load requirements.yaml from the project root and validate that each requirement entry contains id, title and description fields."
+
+  - id: SCS-SCAN-002
+    title: Parse tasks.yaml
+    description: "Service MUST read tasks.yaml and validate that every task contains id, requirementId, title and status fields."
+
+  - id: SCS-SCAN-003
+    title: Annotation detection
+    description: "Scanner MUST detect @req annotations in supported source files."
+
+  - id: SCS-SCAN-004
+    title: Language support
+    description: "Scanner MUST scan files with extensions .rs, .ts, .js, .py, .go and .dart."
+
+  - id: SCS-SCAN-005
+    title: Comment parsing
+    description: "Scanner MUST correctly parse comment syntax for supported languages including // and #."
+
+  - id: SCS-SCAN-006
+    title: Test file classification
+    description: "Scanner MUST classify files as implementation or test using filename patterns such as *_test.*, *.test.*, test_* or directories named tests."
+
+  - id: SCS-SCAN-007
+    title: Coverage calculation
+    description: "Service MUST compute implementation and test coverage counts for every requirement."
+
+  - id: SCS-SCAN-008
+    title: Coverage status determination
+    description: "Service MUST determine coverage status as covered, partial or missing based on implementation and test counts."
+
+  - id: SCS-SCAN-009
+    title: Orphan annotation detection
+    description: "Scanner MUST detect annotations referencing requirement IDs that do not exist in requirements.yaml."
+
+  - id: SCS-SCAN-010
+    title: Orphan task detection
+    description: "Service MUST detect tasks referencing requirement IDs that do not exist in requirements.yaml."
+
+  - id: SCS-SCAN-011
+    title: Project coverage summary
+    description: "Service MUST compute project level coverage metrics including total requirements, covered, partial, missing and coverage percentage."
+
+  - id: SCS-SCAN-012
+    title: Healthcheck endpoint
+    description: "Service MUST expose GET /healthcheck endpoint returning service status and version."
+
+  - id: SCS-SCAN-013
+    title: Stats endpoint
+    description: "Service MUST expose GET /stats endpoint returning project coverage metrics and annotation counts."
+
+  - id: SCS-SCAN-014
+    title: Requirements endpoint
+    description: "Service MUST expose GET /requirements endpoint listing all requirements with filtering and sorting."
+
+  - id: SCS-SCAN-015
+    title: Requirement detail endpoint
+    description: "Service MUST expose GET /requirements/{requirementId} endpoint returning requirement details with linked annotations and tasks."
+
+  - id: SCS-SCAN-016
+    title: Annotation endpoint
+    description: "Service MUST expose GET /annotations endpoint listing all detected @req annotations with filtering options."
+
+  - id: SCS-SCAN-017
+    title: Tasks endpoint
+    description: "Service MUST expose GET /tasks endpoint returning tasks with filtering by status or orphan state."
+
+  - id: SCS-SCAN-018
+    title: Scan trigger endpoint
+    description: "Service MUST expose POST /scan endpoint allowing clients to trigger a new project scan."
+
+  - id: SCS-SCAN-019
+    title: Scan status endpoint
+    description: "Service MUST expose GET /scan endpoint returning the current scan state."
+
+  - id: SCS-SCAN-020
+    title: Error handling
+    description: "Service MUST handle missing files, malformed YAML and permission errors gracefully without crashing."
+
+  - id: SCS-SCAN-021
+    title: Self hosting
+    description: "Service MUST be capable of scanning its own repository and validating requirement coverage."
+
+  - id: SCS-SCAN-022
+    title: Deterministic verification
+    description: "Project MUST pass cargo fmt, cargo clippy, cargo test and strict coverage verification before release."
