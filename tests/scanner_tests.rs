@@ -219,3 +219,38 @@ fn empty_source_directory_warns() {
             .any(|warning| warning.message.contains("empty source directory"))
     );
 }
+
+#[test]
+/// @req SCS-SCAN-003
+/// Fixture directories are ignored when scanning.
+fn scan_skips_test_fixtures() {
+    let dir = tempfile::tempdir().expect("tempdir");
+    let requirement_id = "FR-FIX-001";
+    write_requirements(&dir, &[requirement_id]);
+    write_tasks(&dir, &[requirement_id]);
+
+    write_temp_file(
+        &dir,
+        "tests/fixtures/sample_test.rs",
+        "// @req FR-FIX-001\n#[test]\nfn sample() {}\n",
+    );
+    write_temp_file(
+        &dir,
+        "tests/real_test.rs",
+        "// @req FR-FIX-001\n#[test]\nfn real() {}\n",
+    );
+
+    let result = scan_project(
+        dir.path(),
+        &dir.path().join("requirements.yaml"),
+        &dir.path().join("tasks.yaml"),
+    )
+    .expect("scan project");
+
+    let count = result
+        .annotations
+        .iter()
+        .filter(|annotation| annotation.requirement_id == requirement_id)
+        .count();
+    assert_eq!(count, 1);
+}

@@ -77,6 +77,9 @@ fn scan_annotations(
         }
 
         let path = entry.path();
+        if is_fixture_path(path, root) {
+            continue;
+        }
         let comment_prefix = match comment_prefix_for(path) {
             Some(prefix) => prefix,
             None => continue,
@@ -107,6 +110,19 @@ fn scan_annotations(
     }
 
     Ok(annotations)
+}
+
+fn is_fixture_path(path: &Path, root: &Path) -> bool {
+    let relative = path.strip_prefix(root).unwrap_or(path);
+    let mut saw_tests = false;
+    for component in relative.components() {
+        let name = component.as_os_str();
+        if saw_tests && name == "fixtures" {
+            return true;
+        }
+        saw_tests = name == "tests";
+    }
+    false
 }
 
 /// @req SCS-SCAN-004
